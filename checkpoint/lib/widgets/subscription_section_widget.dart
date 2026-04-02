@@ -7,9 +7,7 @@ class SubscriptionSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
-      decoration: BoxDecoration(
-        color: Color(0xFF8FFF24),
-      ),
+      decoration: BoxDecoration(color: Color(0xFF8FFF24)),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
         child: Column(
@@ -21,7 +19,7 @@ class SubscriptionSectionWidget extends StatelessWidget {
               style: GoogleFonts.orbitron(
                 fontSize: 18,
                 fontWeight: .bold,
-                color: Color(0xFF090129)
+                color: Color(0xFF090129),
               ),
             ),
             Text(
@@ -35,7 +33,8 @@ class SubscriptionSectionWidget extends StatelessWidget {
             TextField(
               keyboardType: .emailAddress,
               decoration: InputDecoration(
-                hintText: 'Digite seu melhor endereço de email!',
+                hintText: 'Digite seu melhor endereço de email',
+                hintStyle: TextStyle(fontSize: 16, color: Color(0xFF090129)),
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(50),
@@ -52,7 +51,10 @@ class SubscriptionSectionWidget extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 12,
+                ),
                 child: Text(
                   'Inscrever',
                   style: GoogleFonts.poppins(

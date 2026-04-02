@@ -44,10 +44,7 @@ class LoginScreen extends StatelessWidget {
               ),
               const Text(
                 'Faça login para continuar',
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF666666)
-                ),
+                style: TextStyle(fontSize: 14, color: Color(0xFF666666)),
               ),
               TextField(
                 keyboardType: .emailAddress,
