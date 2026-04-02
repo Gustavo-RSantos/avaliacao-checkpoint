@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             spacing: 30,
             children: [
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               Image.network(
                 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=259,fit=crop/YD04P1L0WvuWvzbw/uninassau-logo-6ea85e82a5-seeklogo.com-mjE9XbxVbKFqeVWE.png',
                 width: 250,
@@ -44,7 +44,10 @@ class LoginScreen extends StatelessWidget {
               ),
               const Text(
                 'Faça login para continuar',
-                style: TextStyle(fontSize: 14, color: Color(0xFF666666)),
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFF666666)
+                ),
               ),
               TextField(
                 keyboardType: .emailAddress,
@@ -91,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
             ],
           ),
         ),

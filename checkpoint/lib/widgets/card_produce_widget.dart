@@ -26,28 +26,29 @@ class CardProduce extends StatelessWidget {
       child: Column(
         crossAxisAlignment: .stretch,
         children: [
-          Image.network(
+          Image.asset(
             url,
-            height: 200,
+            height: 300,
             width: double.infinity,
             fit: .cover,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             child: Text(
               nome,
               style: GoogleFonts.orbitron(
-                fontSize: 25,
+                fontSize: 27,
                 fontWeight: .bold,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             child: Text(
               valor,
               style: GoogleFonts.poppins(
                 fontSize: 31,
+                fontWeight: .w600
               ),
             ),
           ),

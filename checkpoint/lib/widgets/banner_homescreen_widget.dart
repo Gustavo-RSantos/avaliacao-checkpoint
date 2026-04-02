@@ -65,5 +65,4 @@ class BannerHomescreen extends StatelessWidget{
       ),
     );
   }
-
 }
