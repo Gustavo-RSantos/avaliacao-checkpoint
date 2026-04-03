@@ -59,6 +59,19 @@ class _HomeScreen extends State<HomeScreen> {
                 );
               },
             ),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                "Ver mais",
+                style: GoogleFonts.poppins(
+                  fontSize: 22,
+                  fontWeight: .bold,
+                  color: Color(0xFF780BF7),
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+            const SizedBox(height: 5),
             SubscriptionSectionWidget(),
           ],
         ),
