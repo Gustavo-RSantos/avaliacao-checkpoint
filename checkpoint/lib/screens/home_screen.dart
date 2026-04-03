@@ -1,6 +1,7 @@
+import "package:checkpoint/sections/category_section_widget.dart";
 import "package:checkpoint/widgets/banner_homescreen_widget.dart";
 import "package:checkpoint/widgets/card_produce_widget.dart";
-import "package:checkpoint/widgets/subscription_section_widget.dart";
+import "package:checkpoint/sections/subscription_section_widget.dart";
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
 
@@ -38,6 +39,7 @@ class _HomeScreen extends State<HomeScreen> {
           crossAxisAlignment: .stretch,
           children: [
             BannerHomescreen(),
+            CategorySectionWidget(),
             Padding(
               padding: const EdgeInsets.all(12),
               child: Text(
