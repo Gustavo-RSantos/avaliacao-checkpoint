@@ -1,4 +1,4 @@
-import 'package:checkpoint/data/categorys_data.dart';
+import 'package:checkpoint/data/categories_data.dart';
 import 'package:checkpoint/widgets/card_category_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,11 +30,17 @@ class CategorySectionWidget extends StatelessWidget {
         ),
         const SizedBox(height: 20),
 
-        ...categorys.map(
-          (category) => CardCategoryWidget(
-            nome: category["nome"]!,
-            url: category["url"]!,
-          ),
+        ListView.builder(
+            shrinkWrap: true,
+            itemCount: categories.length,
+            itemBuilder: (BuildContext context, int index) {
+              final category = categories[index];
+
+              return CardCategoryWidget(
+                  nome: category["nome"]!,
+                  url: category["url"]!
+              );
+            }
         ),
         const SizedBox(height: 40),
       ],

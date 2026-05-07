@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class BannerHomescreen extends StatelessWidget {
-  const BannerHomescreen({super.key});
+class BannerHomescreenWidget extends StatelessWidget {
+  const BannerHomescreenWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

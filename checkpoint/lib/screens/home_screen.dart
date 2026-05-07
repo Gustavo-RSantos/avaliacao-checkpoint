@@ -34,7 +34,7 @@ class _HomeScreen extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: .stretch,
           children: [
-            BannerHomescreen(),
+            BannerHomescreenWidget(),
             const SizedBox(height: 20),
             CategorySectionWidget(),
             ProductsSectionWidget(),

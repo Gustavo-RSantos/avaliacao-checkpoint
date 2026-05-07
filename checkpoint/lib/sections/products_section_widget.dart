@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:google_fonts/google_fonts.dart";
-import "../data/products_data.dart";
+import "../models/product_model.dart";
+import "../services/product_service.dart";
 import "../widgets/card_produce_widget.dart";
 
 class ProductsSectionWidget extends StatelessWidget {
@@ -8,22 +9,56 @@ class ProductsSectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ProductService productService = ProductService();
+
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.all(12),
           child: Text(
             "Promos Especiais",
-            textAlign: .center,
-            style: GoogleFonts.orbitron(fontSize: 28, fontWeight: .bold),
+            textAlign: TextAlign.center,
+            style: GoogleFonts.orbitron(fontSize: 28, fontWeight: FontWeight.bold),
           ),
         ),
+        FutureBuilder<List<ProductModel>>(
+          future: productService.getProducts(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(50.0),
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text("Erro ao carregar produtos: ${snapshot.error}"),
+              );
+            } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+              return const Center(
+                child: Text("Nenhum produto encontrado."),
+              );
+            }
 
-        ...products.map((product) => CardProduce(
-          nome: product["nome"]!,
-          url: product["url"]!,
-          valor: product["valor"]!,
-        )),
+            final products = snapshot.data!;
+
+            return ListView.builder(
+              itemCount: products.length > 8 ? 8 : products.length,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (BuildContext context, index) {
+                final product = products[index];
+
+                return CardProduce(
+                  nome: product.title,
+                  url: product.image,
+                  valor: "R\$ ${product.price.toStringAsFixed(2).replaceAll('.', ',')}",
+                );
+              },
+            );
+          },
+        ),
         const SizedBox(height: 25),
         TextButton(
           onPressed: () {},
@@ -31,8 +66,8 @@ class ProductsSectionWidget extends StatelessWidget {
             "Ver mais",
             style: GoogleFonts.poppins(
               fontSize: 22,
-              fontWeight: .bold,
-              color: Color(0xFF780BF7),
+              fontWeight: FontWeight.bold,
+              color: const Color(0xFF780BF7),
               decoration: TextDecoration.underline,
             ),
           ),

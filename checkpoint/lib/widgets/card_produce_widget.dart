@@ -6,7 +6,6 @@ class CardProduce extends StatelessWidget {
     required this.nome,
     required this.url,
     required this.valor,
-
     super.key,
   });
 
@@ -17,25 +16,40 @@ class CardProduce extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: .all(20),
+      margin: const EdgeInsets.all(20),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
       elevation: 5,
       child: Column(
-        crossAxisAlignment: .stretch,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Image.asset(url, height: 300, width: double.infinity, fit: .cover),
+          url.startsWith('http')
+              ? Image.network(
+                  url,
+                  height: 300,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => const Icon(Icons.error, size: 100),
+                )
+              : Image.asset(
+                  url,
+                  height: 300,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             child: Text(
               nome,
-              style: GoogleFonts.orbitron(fontSize: 27, fontWeight: .bold),
+              style: GoogleFonts.orbitron(fontSize: 27, fontWeight: FontWeight.bold),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             child: Text(
               valor,
-              style: GoogleFonts.poppins(fontSize: 31, fontWeight: .w600),
+              style: GoogleFonts.poppins(fontSize: 31, fontWeight: FontWeight.w600),
             ),
           ),
         ],
