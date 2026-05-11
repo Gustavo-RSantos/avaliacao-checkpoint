@@ -3,6 +3,7 @@ import "package:google_fonts/google_fonts.dart";
 import "../models/product_model.dart";
 import "../services/product_service.dart";
 import "../widgets/card_produce_widget.dart";
+import "../screens/product_detail_screen.dart";
 
 class ProductsSectionWidget extends StatelessWidget {
   const ProductsSectionWidget({super.key});
@@ -50,10 +51,20 @@ class ProductsSectionWidget extends StatelessWidget {
               itemBuilder: (BuildContext context, index) {
                 final product = products[index];
 
-                return CardProduce(
-                  nome: product.title,
-                  url: product.image,
-                  valor: "R\$ ${product.price.toStringAsFixed(2).replaceAll('.', ',')}",
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductDetailScreen(product: product),
+                      ),
+                    );
+                  },
+                  child: CardProduce(
+                    nome: product.title,
+                    url: product.image,
+                    valor: "R\$ ${product.price.toStringAsFixed(2).replaceAll('.', ',')}",
+                  ),
                 );
               },
             );

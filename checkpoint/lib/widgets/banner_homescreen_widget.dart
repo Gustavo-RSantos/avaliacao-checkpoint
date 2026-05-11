@@ -37,7 +37,7 @@ class BannerHomescreenWidget extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(width: 48),
+            const SizedBox(width: 48),
             SizedBox(
               width: 268,
               height: 68,
@@ -56,6 +56,7 @@ class BannerHomescreenWidget extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
