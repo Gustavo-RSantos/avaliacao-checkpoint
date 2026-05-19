@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/cart_screen.dart';
+import '../screens/login_screen.dart';
 import '../services/cart_service.dart';
 
 class CustomAppBarWidget extends StatefulWidget implements PreferredSizeWidget {
@@ -47,7 +48,15 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
         title: Image.asset("assets/logo-usedev.png", height: 50),
         centerTitle: true,
         actions: [
-          const Icon(Icons.person_outline_outlined, size: 40),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
+            },
+            icon: const Icon(Icons.person_outline_outlined, size: 40),
+          ),
           Stack(
             alignment: Alignment.center,
             children: [
