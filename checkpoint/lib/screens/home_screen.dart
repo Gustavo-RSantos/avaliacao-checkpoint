@@ -24,7 +24,7 @@ class _HomeScreen extends State<HomeScreen> {
             BannerHomescreenWidget(),
             CategorySectionWidget(),
             ProductsSectionWidget(),
-            SubscriptionSectionWidget(),
+            SubscriptionSectionWidget()
           ],
         ),
       ),

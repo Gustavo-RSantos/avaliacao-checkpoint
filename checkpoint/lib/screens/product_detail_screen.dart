@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/product_model.dart';
+import '../services/cart_service.dart';
 import '../widgets/custom_app_bar_widget.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -52,6 +53,7 @@ class ProductDetailScreen extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 32,
                       fontWeight: FontWeight.w600,
+                      color: const Color(0xFF780BF7),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -80,7 +82,13 @@ class ProductDetailScreen extends StatelessWidget {
                     height: 60,
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        // Lógica de adicionar ao carrinho
+                        CartService().addToCart(product);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("${product.title} adicionado ao carrinho!"),
+                            duration: const Duration(seconds: 2),
+                          ),
+                        );
                       },
                       icon: const Icon(Icons.add_shopping_cart, color: Colors.white),
                       label: Text(
