@@ -67,7 +67,6 @@ class _CartScreenState extends State<CartScreen> {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF780BF7),
-                  shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                 ),
                 child: Text(
                   "FAZER LOGIN",
